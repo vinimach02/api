@@ -1,25 +1,33 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+import pymssql
 
 app = Flask(__name__)
 
-# Configuração do banco de dados SQLite (substitua pela sua configuração)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///exemplo.db'
-db = SQLAlchemy(app)
+# Configuração do banco de dados SQL Server (substitua pelos seus dados)
+db_config = {
+    'server': 'seu_servidor',
+    'database': 'sua_base_de_dados',
+    'user': 'seu_usuario',
+    'password': 'sua_senha',
+    'port': 1433,  # Porta padrão do SQL Server
+}
 
-# Modelo para a tabela de dados
-class Dado(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(50))
-    email = db.Column(db.String(50))
+def obter_dados_sql():
+    conn = pymssql.connect(**db_config)
+    cursor = conn.cursor()
 
-# Rota para a página HTML com o grid
+    # Substitua 'sua_tabela' pelo nome da sua tabela
+    cursor.execute('SELECT * FROM sua_tabela')
+    dados = cursor.fetchall()
+
+    conn.close()
+
+    return dados
+
 @app.route('/')
-def exibir_grid():
-    dados = Dado.query.all()
+def exibir_dados():
+    dados = obter_dados_sql()
     return render_template('grid.html', dados=dados)
 
 if __name__ == '__main__':
-    # Criação do banco de dados e execução do servidor
-    db.create_all()
     app.run(debug=True)

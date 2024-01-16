@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo de Grid HTML com Dados do SQL</title>
+    <title>Exemplo de Grid HTML com Dados do SQL Server</title>
     <style>
         table {
             border-collapse: collapse;
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    <h1>Exemplo de Grid HTML com Dados do SQL</h1>
+    <h1>Exemplo de Grid HTML com Dados do SQL Server</h1>
 
     <table>
         <thead>
@@ -30,14 +30,16 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
+                <!-- Adicione mais colunas conforme necessário -->
             </tr>
         </thead>
         <tbody>
-            {% for dado in dados %}
+            {% for row in dados %}
                 <tr>
-                    <td>{{ dado.id }}</td>
-                    <td>{{ dado.nome }}</td>
-                    <td>{{ dado.email }}</td>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <!-- Adicione mais colunas conforme necessário -->
                 </tr>
             {% endfor %}
         </tbody>
