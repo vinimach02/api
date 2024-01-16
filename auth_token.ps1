@@ -1,6 +1,6 @@
 $cred = gcloud auth print-access-token
-$project_id = 'lab-gke-408602'
-$baid = '013A7B-750280-649417'
+$project_id = 'lab-gke-0000'
+$baid = '013A7B-00000000-649417'
 $headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = $project_id }
 
 Invoke-WebRequest `

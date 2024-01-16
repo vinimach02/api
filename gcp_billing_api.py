@@ -9,8 +9,8 @@ import json
 #& $env:Temp\GoogleCloudSDKInstaller.exe
 
 api_access_token = headers = "ya29.a0AfB_byBflp4M-nFc1dWL16MGbVMFYe8kTuf3uN9M73RGpePGM5hc37W3SaeDE1izPYCtrOznWbyTEcWzfxna3geO2ICKVFaPs3NK9crY-bLGzREo9Hpo33yt9oHcELyKIcU3jCy5xtrcCTpX4eBTdFVsKq8lvEEgpQYKWmKEHQaCgYKAVsSARASFQHGX2MiLYgmK__cEuQyj1vuvYt5_g0177"
-project_id = "lab-gke-408602"
-billing_account_id = '013A7B-750280-649417'
+project_id = "lab-gke-two"
+billing_account_id = '0000-700000-649417'
 api_base_url = "https://billingbudgets.googleapis.com"
 headers = {
     'Authorization': f'Bearer {api_access_token}',
